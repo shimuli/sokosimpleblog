@@ -1,4 +1,4 @@
-<?php require 'header.php '?>
+<?php require 'Includes/header.php '?>
 
         <!-- Page Header-->
         <header class="masthead" style="background-image: url('assets/img/post-sample-image.png')">
@@ -59,5 +59,5 @@
             </div>
         </div>
         <hr />
-<?php require 'footer.php '?>
+<?php require 'Includes/footer.php '?>
 

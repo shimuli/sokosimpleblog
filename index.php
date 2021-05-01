@@ -1,8 +1,8 @@
 <?php
-require 'blogs.php';
+require 'models/blogs.php';
 
 ?>
-<?php require 'header.php '?>
+<?php require 'Includes/header.php '?>
     <!-- Page Header-->
     <header class="masthead" style="background-image: url('assets/img/home-bg.png')">
         <div class="overlay"></div>
@@ -26,7 +26,7 @@ require 'blogs.php';
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-preview">
                     <?php foreach ($articles as $my_article): ?>
-                    <a a href="post.php?id=<?= $my_article["id"]; ?>">
+                    <a a href="articles.php?id=<?= $my_article["id"]; ?>">
                         <h2 class="post-title"> <?=$my_article["title"];?></h2>                
                     </a>
 
@@ -44,5 +44,5 @@ require 'blogs.php';
         <?php endif;?>
     </div>
     <hr />
-    <?php require 'footer.php '?>
+    <?php require 'Includes/footer.php '?>
 
