@@ -1,8 +1,8 @@
 <?php
 require 'models/blogs.php';
+require 'Includes/header.php ';
 
 ?>
-<?php require 'Includes/header.php '?>
     <!-- Page Header-->
     <header class="masthead" style="background-image: url('assets/img/home-bg.png')">
         <div class="overlay"></div>

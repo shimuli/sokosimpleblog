@@ -1,8 +1,7 @@
 <?php
 require 'models/read.php';
+require 'Includes/header.php'
 ?>
-
-<?php require 'Includes/header.php'?>
 
     <!-- Page Header-->
     <header class="masthead" style="background-image: url('assets/img/post-sample-image.png')">

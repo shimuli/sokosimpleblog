@@ -1,16 +1,34 @@
-<?php require 'Includes/header.php '?>
+<?php require 'Includes/header.php ';
+require 'models/post_new_article.php';
+
+?>
 
 <header class="masthead" style="background-image: url('assets/img/home-bg.png')">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="col-lg-16 col-md-20 mx-auto">
                 <div class="site-heading">
                     <h1>Sokosimple Blog</h1>
-                    <span class="subheading">It's all about farmers</span>
+                    <span class="subheading">Create a new story</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
+<form method="post">
+    <div class="container">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="title" name="title">
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea class="form-control" id="content" rows="3" name="content"></textarea>
+    </div>
+
+    <button class="btn btn-primary btn-lg btn-block">Submit</button>
+    </div>
+    
+</form>
 <?php require 'Includes/footer.php '?>
