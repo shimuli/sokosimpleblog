@@ -2,22 +2,24 @@
 require 'database.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $sql = "INSERT INTO articles(title, content)
-     VALUES('"
-        . $_POST['title'] . "', '"
-        . $_POST['content'] .
-        "')";
+    VALUES(?, ?)";
 
-    //  var_dump($sql);
-    //  exit;
+    $stmt = mysqli_prepare($conn, $sql);
 
-    $results = mysqli_query($conn, $sql);
-    if ($results === false) {
+    if($stmt ===false){
         echo mysqli_error($conn);
-    } else {
-        $id = mysqli_insert_id($conn);
-        //echo "Inserted record with ID: $id";
+    }
+    else{
+       mysqli_stmt_bind_param($stmt, "ss",$_POST['title'],  $_POST['content']);
+       if(mysqli_stmt_execute($stmt)){
+           $id = mysqli_insert_id($conn);
+           echo "Inserted record with ID: $id";
+       }
+       else{
+           echo mysqli_stmt_error($stmt);
+
+       }
     }
 
 }
