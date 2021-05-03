@@ -1,6 +1,6 @@
 <?php
 require 'database.php';
-//echo "Hey, if you are seeing this, know that you have successfully found me and am ready to serve you with data";
+$conn = getDatabase();
 
 $sql = "SELECT *
 FROM articles

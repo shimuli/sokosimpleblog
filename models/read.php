@@ -1,5 +1,7 @@
 <?php
 require 'database.php';
+$conn = getDatabase();
+
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $sql = "SELECT *
     FROM articles
