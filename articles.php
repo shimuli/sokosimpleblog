@@ -14,9 +14,9 @@ require 'Includes/header.php'
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="post-heading">
                         <?php foreach ($articles as $my_article): ?>
-                        <h1><?=$my_article["title"];?></h1>              
+                        <h1><?=htmlspecialchars($my_article["title"]) ;?></h1>              
                         <span class="meta"> Date Posted: 
-                            <?=$my_article["date_posted"];?>
+                            <?= $my_article["date_posted"];?>
                         </span>
                         <?php endforeach;?>
                     </div>
@@ -34,7 +34,7 @@ require 'Includes/header.php'
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                      <?php foreach ($articles as $my_article): ?>
-                    <p> <?=$my_article["content"];?></p>
+                    <p> <?=htmlspecialchars($my_article["content"]) ;?></p>
                     <?php endforeach ?>
                 </div>
             </div>

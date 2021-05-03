@@ -27,7 +27,7 @@ require 'Includes/header.php ';
                 <div class="post-preview">
                     <?php foreach ($articles as $my_article): ?>
                     <a a href="articles.php?id=<?= $my_article["id"]; ?>">
-                        <h2 class="post-title"> <?=$my_article["title"];?></h2>                
+                        <h2 class="post-title"> <?=htmlspecialchars($my_article["title"]) ;?></h2>                
                     </a>
 
                     
