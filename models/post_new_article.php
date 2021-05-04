@@ -1,6 +1,6 @@
 <?php
 require 'database.php';
-$errors = [];
+require './function/article.function.php';
 $title = '';
 $content = '';
 $subfolder = "/sokosimpleblog";
@@ -10,12 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-    if ($title == '') {
-        $errors[] = 'Title is required';
-    }
-    if ($content == '') {
-        $errors[] = 'Content is required';
-    }
+    $errors = validateInput($title, $content);
     if (empty($errors)) {
         $conn = getDatabase();
 
