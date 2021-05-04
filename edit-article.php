@@ -2,10 +2,8 @@
 require 'models/database.php';
 require 'function/article.function.php';
 require 'function/url.php';
-
 require 'Includes/header.php ';
 $conn = getDatabase();
-
 
 // Check if there is an ID for an article
 if (isset($_GET['id'])) {
@@ -40,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          content = ?
          WHERE id = ?";
 
-
         $stmt = mysqli_prepare($conn, $sql);
 
         if ($stmt === false) {
@@ -51,10 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (mysqli_stmt_execute($stmt)) {
 
                 // redirect
-               redirect("/articles.php?id=$id");
+                redirect("/articles.php?id=$id");
 
             } else {
-                echo mysqli_stmt_error($stmt); 
+                echo mysqli_stmt_error($stmt);
 
             }
         }

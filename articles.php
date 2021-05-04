@@ -51,8 +51,13 @@ if (isset($_GET['id'])) {
     </div>
 </article>
 
-  <div class="clearfix">
-      <a class="btn btn-primary float-right" href="edit-article.php?id=<?= $articles['id'] ?>"> Edit </a>
-    </div>
+<div class="container-fluid clearfix">
+    <a class="btn btn-primary float-left" href="edit-article.php?id=<?= $articles['id']; ?>"> Edit </a>
+    <a class="btn btn-primary float-right" href="delete-article.php?id=<?= $articles['id'];?>">Delete</a>
+</div>
+
+<!-- <div class="clearfix">
+    <a class="btn btn-primary float-right" href="delete-article.php?id=<?= $articles['id'];?>">Delete</a>
+</div> -->
 <hr />
 <?php require 'Includes/footer.php '?>
