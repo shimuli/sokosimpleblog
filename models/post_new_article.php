@@ -1,6 +1,7 @@
 <?php
 require 'database.php';
 require './function/article.function.php';
+require './function/url.php';
 $title = '';
 $content = '';
 $subfolder = "/sokosimpleblog";
@@ -24,17 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             mysqli_stmt_bind_param($stmt, "ss", $title, $content);
             if (mysqli_stmt_execute($stmt)) {
+                $id = mysqli_insert_id($conn);
 
                 // redirect
-                if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-                    $protocal = 'https';
-                } else {
-                    $protocal = 'http';
-                }
 
-                $id = mysqli_insert_id($conn);
-                header("Location: $protocal://" . $_SERVER['HTTP_HOST'] . $subfolder . "/articles.php?id=$id");
-                exit;
+                redirect("/articles.php?id=$id");
 
             } else {
                 echo mysqli_stmt_error($stmt);

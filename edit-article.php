@@ -1,20 +1,21 @@
 <?php
 require 'models/database.php';
 require 'function/article.function.php';
+require 'function/url.php';
+
 require 'Includes/header.php ';
-
-
 $conn = getDatabase();
+
 
 // Check if there is an ID for an article
 if (isset($_GET['id'])) {
     $articles = getArticle($conn, $_GET['id']);
 
     if ($articles) {
+        $id = $articles['id'];
         $title = $articles['title'];
         $content = $articles['content'];
-    }
-    else{
+    } else {
         die("Article not found");
     }
 
@@ -33,7 +34,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = validateInput($title, $content);
 
     if (empty($errors)) {
-        die("Is valid");
+
+        $sql = "UPDATE articles
+        SET title = ?,
+         content = ?
+         WHERE id = ?";
+
+
+        $stmt = mysqli_prepare($conn, $sql);
+
+        if ($stmt === false) {
+            echo mysqli_error($conn);
+
+        } else {
+            mysqli_stmt_bind_param($stmt, "ssi", $title, $content, $id);
+            if (mysqli_stmt_execute($stmt)) {
+
+                // redirect
+               redirect("/articles.php?id=$id");
+
+            } else {
+                echo mysqli_stmt_error($stmt); 
+
+            }
+        }
+
     }
 
 }
@@ -55,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
 require 'Includes/article-form.php';
- require 'Includes/footer.php ';
- ?>
+require 'Includes/footer.php ';
+?>
 
 

@@ -50,5 +50,9 @@ if (isset($_GET['id'])) {
         <?php endif; ?>
     </div>
 </article>
+
+  <div class="clearfix">
+      <a class="btn btn-primary float-right" href="edit-article.php?id=<?= $articles['id'] ?>"> Edit </a>
+    </div>
 <hr />
 <?php require 'Includes/footer.php '?>
