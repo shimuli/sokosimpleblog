@@ -1,7 +1,7 @@
 <?php
-function getArticle($conn, $id)
+function getArticle($conn, $id, $columns ='*')
 {
-    $sql = "SELECT *FROM articles WHERE id=?";
+    $sql = "SELECT $columns FROM articles WHERE id=?";
 
     $stmt = mysqli_prepare($conn, $sql);
     if ($stmt === false) {

@@ -7,12 +7,10 @@ $conn = getDatabase();
 
 // Check if there is an ID for an article
 if (isset($_GET['id'])) {
-    $articles = getArticle($conn, $_GET['id']);
+    $articles = getArticle($conn, $_GET['id'], 'id');
 
     if ($articles) {
         $id = $articles['id'];
-        $title = $articles['title'];
-        $content = $articles['content'];
     } else {
         die("Article not found");
     }
