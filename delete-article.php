@@ -2,7 +2,7 @@
 require 'models/database.php';
 require 'function/article.function.php';
 require 'function/url.php';
-require 'Includes/header.php ';
+//require 'Includes/header.php ';
 $conn = getDatabase();
 
 // Check if there is an ID for an article
@@ -44,12 +44,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
 <?php
 require 'Includes/header.php'?>
-<h2>Delete article</h2>
+<div class="container-fluid clearfix">
 
-<form method="post">
-    <p>Are you sure?</p>
-    <button>Delete</button>
-    <a href="articles.php?id=<?=$articles['id'];?>">Cancel</a>
-</form>
+    <h2>Delete article</h2>
+    <form method="post" class="align-items-center">
+        <p>Are you sure?</p>
+        <button class="btn btn-primary">Delete</button>
+        <a href="articles.php?id=<?=$articles['id'];?>"><button class="btn btn-primary">Cancel</button></a>
+    </form>
+</div>
 </div>
 <?php require 'Includes/footer.php'?>

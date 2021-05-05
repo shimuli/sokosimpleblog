@@ -2,6 +2,8 @@
 require 'database.php';
 require './function/article.function.php';
 require './function/url.php';
+
+
 $title = '';
 $content = '';
 $subfolder = "/sokosimpleblog";

@@ -1,3 +1,8 @@
+<?php
+session_start();
+require 'function/auth-function.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +42,12 @@
                     <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="post.php">Post Article</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                    <?php if (isLoggedIn()): ?>
+                    <li class="nav-item"><a class="nav-link" href="logout.php">Log out</a></li>
+
+                    <?php else: ?>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                    <?php endif;?>
                 </ul>
             </div>
         </div>

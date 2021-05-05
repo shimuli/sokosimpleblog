@@ -1,7 +1,7 @@
 <?php
 require 'Includes/header.php ';
-
 require 'models/database.php';
+
 $conn = getDatabase();
 
 $sql = "SELECT *
